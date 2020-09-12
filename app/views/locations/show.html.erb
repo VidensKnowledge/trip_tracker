@@ -1,2 +1,10 @@
-<h1>Locations#show</h1>
-<p>Find me in app/views/locations/show.html.erb</p>
+<h1>Here are your locations!</h1>
+<h1><%= @location.name %></h1>
+<hr />
+<p>What would you like to do?</p>
+<%= link_to 'View Locations', trip_locations_path(@location) %>
+<br />
+<%= link_to 'Edit a Location', edit_location_path(@location) %>
+<br />
+<%= link_to 'Delete a Location', @location, method: :delete %>
+<%= link_to 'Addresses', location_addresses_path(@addresses) %>
