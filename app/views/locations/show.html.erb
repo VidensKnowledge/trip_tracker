@@ -1,5 +1,5 @@
 <h1>Here are your locations!</h1>
-<h1><%= @location.name %></h1>
+<h1><%= @location.loc_name %></h1>
 <hr />
 <p>What would you like to do?</p>
 <%= link_to 'View Locations', trip_locations_path(@location) %>
@@ -7,4 +7,4 @@
 <%= link_to 'Edit a Location', edit_location_path(@location) %>
 <br />
 <%= link_to 'Delete a Location', @location, method: :delete %>
-<%= link_to 'Addresses', location_addresses_path(@addresses) %>
+<%= link_to 'Addresses', location_addresses_path(:location_id) %>
