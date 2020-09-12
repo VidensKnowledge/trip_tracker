@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   end
     
   resource :locations do
-    resources :Addresses
+    resources :addresses
   end
 
   ## Todo add model resources later linking trips, locations, addresses
