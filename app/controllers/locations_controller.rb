@@ -1,5 +1,5 @@
 class LocationsController < ApplicationController
-  before_action :set_action, only: [:show, :update, :adit, :destroy]
+  before_action :set_action, only: [:show, :update, :edit, :destroy]
   def index
    @locations = Location.all
   end
@@ -18,21 +18,21 @@ class LocationsController < ApplicationController
     @location = Location.new(location_params)
 
     if @location.save
-      redirect_to #finish where direct to 
+      redirect_to locations_path
     else 
       render :new
     end
   end 
   def update
     if @location.update(location_params)
-      redirect_to #where to?
+      redirect_to locations_path
     else 
       render :edit
     end 
   end
   def destroy 
     @location.destroy 
-    redirect_to #where do we go?
+    redirect_to locations_path
   end 
   private 
      def set_location
