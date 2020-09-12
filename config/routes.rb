@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   get 'trips/new'
   get 'trips/edit'
   devise_for :users
+  resources :trips do
+    resources :locations do
+      resources :Addresses
+    end
+  end
 
   ## Todo add model resources later linking trips, locations, addresses
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
