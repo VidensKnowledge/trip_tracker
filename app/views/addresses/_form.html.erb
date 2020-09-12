@@ -1,6 +1,6 @@
 <h1><%= @address.id ? 'Edit Address' : 'Create Address' %></h1>
 <hr />
-<%= form_for @address do |f| %>
+<%= form_for [@location, @address] do |f| %>
   <%= f.label :street %>
   <%= f.text_field :street, required: true, autofocus: true, placeholder: "Street Address" %>
   <%= f.label :city %>
@@ -13,6 +13,5 @@
   <%= f.text_field :country, required: true, placeholder: "Country" %>
   <%= f.label :zip %>
   <%= f.number_field :zip, required: true, placeholder: "Zip Code (numbers only)" %>
-
   <%= f.submit %>
 <% end %>
