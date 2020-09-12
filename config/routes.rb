@@ -11,13 +11,13 @@ Rails.application.routes.draw do
   # get 'trips/new'
   # get 'trips/edit'
   devise_for :users
-  root "accounts#index"
+  root "trips#index"
 
   resources :trips do
     resources :locations 
   end
     
-  resource :locations do
+  resources :locations do
     resources :addresses
   end
 
