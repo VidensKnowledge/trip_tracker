@@ -11,12 +11,6 @@ Rails.application.routes.draw do
   # get 'trips/new'
   # get 'trips/edit'
   devise_for :users
-<<<<<<< HEAD
-  resources :trips do
-    resources :locations do
-      resources :Addresses
-    end
-=======
   root "accounts#index"
 
   resources :trips do
@@ -25,7 +19,6 @@ Rails.application.routes.draw do
     
   resource :locations do
     resources :addresses
->>>>>>> 4146851f815e55fc40d321f8f4dba4a75093a97e
   end
 
   ## Todo add model resources later linking trips, locations, addresses
