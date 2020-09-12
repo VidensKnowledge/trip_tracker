@@ -1,5 +1,7 @@
 class LocationsController < ApplicationController
-  before_action :set_action, only: [:show, :update, :edit, :destroy]
+  before_action :set_location, only: [:show, :update, :edit, :destroy]
+  before_action :set_trip
+  
   def index
    @locations = Location.all
   end
@@ -12,13 +14,14 @@ class LocationsController < ApplicationController
   end
 
   def new
-   @location =Location.new
+   @location = @trip.locations.new
+   render partial: 'form'
   end
   def create 
-    @location = Location.new(location_params)
+    @location = @trip.locations.new(location_params)
 
     if @location.save
-      redirect_to locations_path
+      redirect_to trip_locations_path(@trip)
     else 
       render :new
     end
@@ -35,11 +38,16 @@ class LocationsController < ApplicationController
     redirect_to locations_path
   end 
   private 
+
+     def set_trip
+    @trip = Trip.find(params[:trip_id])
+    end
+
      def set_location
-      @location = location.find(params[:id])
+      @location = Location.find(params[:id])
     end 
 
     def location_params
-      perams.require(:location).permit(:loc_name)
+      params.require(:location).permit(:loc_name)
     end
 end

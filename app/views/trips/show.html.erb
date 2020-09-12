@@ -1,9 +1,11 @@
-// <h1>Here are your trips!</h1>
-// <h1><%= @trip.name %></h1>
-// <hr />
-// <p>What would you like to do?</p>
-// <%= link_to 'View Locations', trip_locations_path(@trip) %>
-// <br />
-// <%= link_to 'Edit Trips', edit_trip_path(@trip) %>
-// <br />
-// <%= link_to 'Delete Trip', @trip, method: :delete %>
+<h1>Here are your trips!</h1>
+<h1><%= @trip.name %></h1>
+<hr />
+<p>What would you like to do?</p>
+<%= link_to 'Add Location', new_trip_location_path(@trip) %>
+<br />
+<%= link_to 'View Locations', trip_locations_path(@trip) %>
+<br />
+<%= link_to 'Edit Trips', edit_trip_path(@trip) %>
+<br />
+<%= link_to 'Delete Trip', @trip, method: :delete %>
