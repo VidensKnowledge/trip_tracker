@@ -9,19 +9,20 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
+    render partial: 'form'
   end
 
   def edit
-    @trip = current_user.trip.new(trip_params)
+    @trip = current_user.trips.new(trip_params)
     if @trip.save
-      redirect_to root_path
+      redirect_to trips_path
     else
       render :new
     end
   end
 
   def create
-    @trip = current_user.trip.new(trip_params)
+    @trip = current_user.trips.new(trip_params)
 
     if @trip.save
       redirect_to trips_path
@@ -35,7 +36,7 @@ class TripsController < ApplicationController
   end
 
   def update
-    if @trip.update(sub_params)
+    if @trip.update(trip_params)
       redirect_to trips_path
     else
       render :edit
