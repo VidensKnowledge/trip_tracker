@@ -1,7 +1,7 @@
 <h1>View your trips!</h1>
-<%= link_to 'Create a new trip', new_trip_path %>
 <ul>
   <% @trips.each do |trip| %>
     <li><%= link_to trip.name, trip %></li>
   <% end %>
 </ul>
+<%= link_to 'Create a new trip', new_trip_path %>
